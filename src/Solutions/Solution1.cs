@@ -7,7 +7,7 @@
 /// </summary>
 public sealed class Solution1
 {
-	public int[] TwoSum(int[] nums, int target)
+	public static int[] TwoSum(int[] nums, int target)
 	{
 		var dictionary = new Dictionary<int, int>();
 		for (var i = 0; i < nums.Length; i++)

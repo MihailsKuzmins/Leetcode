@@ -10,8 +10,7 @@ public sealed class Solution1Should
 
 		var expected = new[] { 0, 1 };
 
-		var result = new Solution1()
-			.TwoSum(nums, target);
+		var result = Solution1.TwoSum(nums, target);
 
 		result
 			.Should()
@@ -26,8 +25,7 @@ public sealed class Solution1Should
 
 		var expected = new[] { 1, 2 };
 
-		var result = new Solution1()
-			.TwoSum(nums, target);
+		var result = Solution1.TwoSum(nums, target);
 
 		result
 			.Should()
@@ -42,8 +40,7 @@ public sealed class Solution1Should
 
 		var expected = new[] { 0, 1 };
 
-		var result = new Solution1()
-			.TwoSum(nums, target);
+		var result = Solution1.TwoSum(nums, target);
 
 		result
 			.Should()

@@ -7,7 +7,7 @@
 /// </summary>
 public sealed class Solution9
 {
-	public bool IsPalindrome(int x)
+	public static bool IsPalindrome(int x)
 	{
 		if (x < 0)
 			return false;

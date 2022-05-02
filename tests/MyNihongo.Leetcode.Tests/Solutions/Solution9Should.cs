@@ -7,8 +7,7 @@ public sealed class Solution9Should
 	{
 		const int input = 121;
 
-		var result = new Solution9()
-			.IsPalindrome(input);
+		var result = Solution9.IsPalindrome(input);
 
 		result
 			.Should()
@@ -20,8 +19,7 @@ public sealed class Solution9Should
 	{
 		const int input = -121;
 
-		var result = new Solution9()
-			.IsPalindrome(input);
+		var result = Solution9.IsPalindrome(input);
 
 		result
 			.Should()
@@ -33,8 +31,7 @@ public sealed class Solution9Should
 	{
 		const int input = 10;
 
-		var result = new Solution9()
-			.IsPalindrome(input);
+		var result = Solution9.IsPalindrome(input);
 
 		result
 			.Should()
