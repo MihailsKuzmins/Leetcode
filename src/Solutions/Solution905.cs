@@ -4,27 +4,22 @@ public sealed class Solution905
 {
 	public static int[] SortArrayByParity(int[] nums)
 	{
-		for (var i = 0; i < nums.Length; i++)
+		if (nums.Length == 1)
+			return nums;
+
+		for (int i = 0, evenIndex = 0; i < nums.Length; i++)
 		{
-			if (nums[i] % 2 == 0)
+			if (nums[i] % 2 != 0)
 				continue;
 
-			var isMoved = false;
-			for (var j = i + 1; j < nums.Length; j++)
+			if (evenIndex != i)
 			{
-				if (nums[j] % 2 != 0)
-					continue;
-
-				nums[i] += nums[j];
-				nums[j] = nums[i] - nums[j];
-				nums[i] -= nums[j];
-
-				isMoved = true;
-				break;
+				nums[i] += nums[evenIndex];
+				nums[evenIndex] = nums[i] - nums[evenIndex];
+				nums[i] -= nums[evenIndex];
 			}
 
-			if (!isMoved)
-				break;
+			evenIndex++;
 		}
 
 		return nums;
