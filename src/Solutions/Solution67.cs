@@ -12,82 +12,22 @@ public sealed class Solution67
 		if (b == "0")
 			return a;
 
-		if (a.Length > b.Length)
-			(a, b) = (b, a);
-
+		int i = a.Length - 1, j = b.Length - 1, carry = 0;
 		var result = new System.Text.StringBuilder(b.Length);
-		var indexDifference = b.Length - a.Length;
-		var transferOne = false;
-		for (var i = a.Length - 1; i >= 0; i--)
+
+		while (i >= 0 || j >= 0)
 		{
-			switch (a[i])
-			{
-				case '0':
-					switch (b[i + indexDifference])
-					{
-						case '0':
-							result.Insert(0, transferOne ? '1' : '0');
-							transferOne = false;
-							break;
-						case '1':
-							if (transferOne)
-							{
-								result.Insert(0, '0');
-							}
-							else
-							{
-								result.Insert(0, '1');
-								transferOne = false;
-							}
-							break;
-					}
-					break;
-				case '1':
-					switch (b[i + indexDifference])
-					{
-						case '0':
-							if (transferOne)
-							{
-								result.Insert(0, '0');
-							}
-							else
-							{
-								result.Insert(0, '1');
-								transferOne = false;
-							}
-							break;
-						case '1':
-							result.Insert(0, transferOne ? '1' : '0');
-							transferOne = true;
-							break;
-					}
-					break;
-			}
+			var sum = carry;
+			if (i >= 0)
+				sum += a[i--] - '0';
+			if (j >= 0)
+				sum += b[j--] - '0';
+
+			result.Insert(0, sum % 2);
+			carry = sum / 2;
 		}
 
-		for (var i = indexDifference - 1; i >= 0; i--)
-		{
-			switch (b[i])
-			{
-				case '0':
-					result.Insert(0, transferOne ? '1' : '0');
-					transferOne = false;
-					break;
-				case '1':
-					if (transferOne)
-					{
-						result.Insert(0, '0');
-					}
-					else
-					{
-						result.Insert(0, '1');
-						transferOne = false;
-					}
-					break;
-			}
-		}
-
-		if (transferOne)
+		if (carry != 0)
 			result.Insert(0, '1');
 
 		return result.ToString();
