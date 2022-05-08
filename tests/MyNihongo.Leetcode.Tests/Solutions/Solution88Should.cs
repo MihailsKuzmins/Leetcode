@@ -43,4 +43,18 @@ public sealed class Solution88Should
 			.Should()
 			.BeEquivalentTo(expected, x => x.WithStrictOrdering());
 	}
+
+	[Fact]
+	public void Case4()
+	{
+		const int len1 = 1, len2 = 1;
+		int[] nums1 = { 2, 0 }, nums2 = { 1 },
+			expected = { 1, 2 };
+
+		Solution88.Merge(nums1, len1, nums2, len2);
+
+		nums1
+			.Should()
+			.BeEquivalentTo(expected, x => x.WithStrictOrdering());
+	}
 }
