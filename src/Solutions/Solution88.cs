@@ -34,4 +34,58 @@ public sealed class Solution88
 			}
 		}
 	}
+
+	/// <summary>
+	/// My original solution
+	/// </summary>
+	public static void Merge2(int[] nums1, int m, int[] nums2, int n)
+	{
+		if (n == 0)
+			return;
+
+		if (m == 0)
+		{
+			for (var i = 0; i < n; i++)
+				nums1[i] = nums2[i];
+
+			return;
+		}
+
+		for (int i = 0, j = 0; i < m || j < n;)
+		{
+			if (i >= m)
+			{
+				for (var k = i; k < nums1.Length; k++, j++)
+					nums1[k] = nums2[j];
+
+				return;
+			}
+			if (j >= n)
+				return;
+
+			if (nums1[i] <= nums2[j])
+			{
+				i++;
+			}
+			else
+			{
+				var jStart = j++;
+				for (; j < n; j++)
+				{
+					if (nums2[j] != nums2[j - 1])
+						break;
+				}
+
+				var moveRange = j - jStart;
+				for (var k = m - 1; k >= i; k--)
+					nums1[k + moveRange] = nums1[k];
+
+				for (var k = 0; k < moveRange; k++)
+					nums1[i + k] = nums2[jStart];
+
+				m += moveRange;
+				i += moveRange;
+			}
+		}
+	}
 }
