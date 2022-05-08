@@ -8,25 +8,13 @@ public sealed class Solution83
 {
 	public static ListNode? DeleteDuplicates(ListNode? head)
 	{
-		if (head == null)
-			return null;
-
-		var unique = head;
-		var curr = unique.next;
-		var num = unique.val;
-		while (curr != null)
+		var curr = head;
+		while (curr?.next != null)
 		{
-			var isUnique = curr.val != num;
-			if (isUnique)
-			{
-				unique = unique.next = curr;
-				num = curr.val;
-			}
-
-			curr = curr.next;
-
-			if (!isUnique)
-				unique.next = null;
+			if (curr.val == curr.next.val)
+				curr.next = curr.next.next;
+			else
+				curr = curr.next;
 		}
 
 		return head;
