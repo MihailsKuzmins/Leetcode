@@ -45,7 +45,7 @@ public sealed class Solution53Should
 	public void Case4()
 	{
 		var nums = new[] { -5, -3 };
-		const int expected = 23;
+		const int expected = -3;
 
 		var result = Solution53.MaxSubArray(nums);
 
