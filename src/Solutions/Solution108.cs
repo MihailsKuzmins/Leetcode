@@ -7,7 +7,7 @@ namespace MyNihongo.Leetcode.Solutions;
 /// </summary>
 public sealed class Solution108
 {
-	// TODO: try iterative
+	// TODO: iterative
 	public static TreeNode? SortedArrayToBST(int[] nums)
 	{
 		return nums.Length != 0
