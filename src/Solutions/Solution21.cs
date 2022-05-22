@@ -64,11 +64,7 @@ public sealed class Solution21
 
 		public override string ToString()
 		{
-			var str = val.ToString();
-			if (next != null)
-				str += " -> ";
-
-			return str;
+			return val.ToString();
 		}
 	}
 }
