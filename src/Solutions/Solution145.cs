@@ -11,26 +11,53 @@ public sealed class Solution145
 		if (root == null)
 			return Array.Empty<int>();
 
-		var temp = root;
-		var visited = new HashSet<TreeNode>();
 		var list = new List<int>();
-
-		while (temp != null && !visited.Contains(temp))
+		var stack = new Stack<TreeNode>();
+		stack.Push(root);
+		
+		TreeNode? prev = null;
+		while (stack.Count != 0)
 		{
-			if (temp.left != null && !visited.Contains(temp.left))
-				temp = temp.left;
-			else if (temp.right != null && !visited.Contains(temp.right))
-				temp = temp.right;
-			else
-			{
-				list.Add(temp.val);
+			var node = stack.Peek();
 
-				visited.Add(temp);
-				temp = root;
+			// go down the tree in search of a leaf and
+			// if so process it and pop stack otherwise move down
+			if (prev == null || prev.left == node || prev.right == node)
+			{
+				if (node.left != null)
+					stack.Push(node.left);
+				else if (node.right != null)
+					stack.Push(node.right);
+				else
+				{
+					stack.Pop();
+					list.Add(node.val);
+				}
 			}
+			// go up the tree from left node, if the child is right
+			// push it onto stack otherwise process parent and pop the stack
+			else if (node.left == prev)
+			{
+				if (node.right != null)
+					stack.Push(node.right);
+				else
+				{
+					stack.Pop();
+					list.Add(node.val);
+				}
+			}
+			// go up the tree from right node and after coming back
+			// from right node process parent and pop the stack
+			else if (node.right == prev)
+			{
+				stack.Pop();
+				list.Add(node.val);
+			}
+
+			prev = node;
 		}
 
-		return list;
+        return list;
 	}
 
 	public sealed class TreeNode
