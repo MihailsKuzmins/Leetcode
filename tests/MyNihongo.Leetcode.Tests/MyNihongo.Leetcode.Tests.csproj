@@ -22,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\src\MyNihongo.Leetcode.csproj" />
+	  <ProjectReference Include="..\..\src\algorithms_concurrency\MyNihongo.Leetcode.csproj" />
 	</ItemGroup>
 
 </Project>
