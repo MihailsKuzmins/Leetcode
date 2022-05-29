@@ -13,7 +13,7 @@ public sealed class Solution190
 			result <<= 1; // ensure the bit capacity
 			result |= n & 1; // the same as n % 2. set the last bit
 
-			n >>= 1; // the same as n =/ 2
+			n >>= 1; // the same as n /= 2
 		}
 
 		return result;
