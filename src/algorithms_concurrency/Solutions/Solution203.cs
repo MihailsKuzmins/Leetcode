@@ -8,6 +8,25 @@ public sealed class Solution203
 {
 	public static ListNode? RemoveElements(ListNode? head, int val)
 	{
-		throw new Exception();
+		ListNode? newHead = null, curr = null;
+		while (head != null)
+		{
+			if (head.val != val)
+			{
+				if (newHead == null)
+					newHead = head;
+				if (curr != null)
+					curr.next = head;
+
+				curr = head;
+			}
+
+			head = head.next;
+			
+			if (curr != null)
+				curr.next = null;
+		}
+
+		return newHead;
 	}
 }

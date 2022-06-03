@@ -35,4 +35,19 @@ internal static class ListNodeHelpers
 
 		return list;
 	}
+
+	public static IEnumerable<int> CreateValueArray(ListNode? node)
+	{
+		if (node == null)
+			return Enumerable.Empty<int>();
+
+		var list = new List<int> { node.val };
+		while (node.next != null)
+		{
+			list.Add(node.next.val);
+			node = node.next;
+		}
+
+		return list;
+	}
 }
