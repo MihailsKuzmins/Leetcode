@@ -19,25 +19,4 @@ public sealed class Solution83
 
 		return head;
 	}
-
-	public sealed class ListNode
-	{
-		public int val;
-		public ListNode? next;
-
-		public ListNode(int val = 0, ListNode? next = null)
-		{
-			this.val = val;
-			this.next = next;
-		}
-
-		public override string ToString()
-		{
-			var str = val.ToString();
-			if (next != null)
-				str += " -> ";
-
-			return str;
-		}
-	}
 }
