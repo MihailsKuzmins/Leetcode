@@ -2,3 +2,4 @@
 global using MyNihongo.Leetcode.Solutions;
 global using Xunit;
 global using static MyNihongo.Leetcode.Tests.ListNodeHelpers;
+global using static MyNihongo.Leetcode.Tests.TreeNodeHelpers;

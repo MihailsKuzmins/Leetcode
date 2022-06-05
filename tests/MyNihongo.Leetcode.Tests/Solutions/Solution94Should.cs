@@ -5,7 +5,7 @@ public sealed class Solution94Should
 	[Fact]
 	public void Case1()
 	{
-		Solution94.TreeNode item3 = new(3), item2 = new(2, item3), item1 = new(1, right: item2);
+		TreeNode item3 = new(3), item2 = new(2, item3), item1 = new(1, right: item2);
 		var expected = new [] { 1, 3, 2 };
 
 		var result = Solution94.InorderTraversal(item1);
@@ -28,7 +28,7 @@ public sealed class Solution94Should
 	[Fact]
 	public void Case3()
 	{
-		Solution94.TreeNode item1 = new(1);
+		TreeNode item1 = new(1);
 		var expected = new[] { 1 };
 
 		var result = Solution94.InorderTraversal(item1);

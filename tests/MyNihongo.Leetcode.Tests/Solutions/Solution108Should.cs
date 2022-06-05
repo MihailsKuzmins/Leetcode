@@ -30,13 +30,13 @@ public sealed class Solution108Should
 			.BeEquivalentTo(expected, x => x.WithStrictOrdering());
 	}
 
-	private static IEnumerable<int?> GetList(Solution108.TreeNode? root)
+	private static IEnumerable<int?> GetList(TreeNode? root)
 	{
 		if (root == null)
 			return Enumerable.Empty<int?>();
 
 		var list = new List<int?>();
-		var queue = new Queue<Solution108.TreeNode?>();
+		var queue = new Queue<TreeNode?>();
 		queue.Enqueue(root);
 
 		while (queue.Count > 0)

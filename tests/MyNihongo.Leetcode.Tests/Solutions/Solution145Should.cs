@@ -5,7 +5,7 @@ public sealed class Solution145Should
 	[Fact]
 	public void Case1()
 	{
-		Solution145.TreeNode right1 = new(3), right = new(2, right1),
+		TreeNode right1 = new(3), right = new(2, right1),
 			item = new(1, right: right);
 
 		var expected = new[] { 3, 2, 1 };
@@ -30,7 +30,7 @@ public sealed class Solution145Should
 	[Fact]
 	public void Case3()
 	{
-		Solution145.TreeNode item = new(1);
+		TreeNode item = new(1);
 
 		var expected = new[] { 1 };
 
@@ -44,7 +44,7 @@ public sealed class Solution145Should
 	[Fact]
 	public void Case4()
 	{
-		Solution145.TreeNode left = new(1),
+		TreeNode left = new(1),
 			right = new(2),
 			item = new(3, left, right);
 
