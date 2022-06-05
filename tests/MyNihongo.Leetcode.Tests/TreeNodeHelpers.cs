@@ -33,4 +33,42 @@ internal static class TreeNodeHelpers
 
 		return root;
 	}
+
+	public static IEnumerable<int?> GetBinaryTreeList(TreeNode? root)
+	{
+		if (root == null)
+			return Enumerable.Empty<int?>();
+
+		var list = new List<int?>();
+		var queue = new Queue<TreeNode?>();
+		queue.Enqueue(root);
+
+		while (queue.Count > 0)
+		{
+			for (int i = 0, count = queue.Count; i < count; i++)
+			{
+				var node = queue.Dequeue();
+				list.Add(node?.val);
+
+				if (node == null)
+					continue;
+
+				if (node.left == null && node.right == null)
+					continue;
+
+				queue.Enqueue(node.left);
+				queue.Enqueue(node.right);
+			}
+		}
+
+		for (var i = list.Count - 1; i >= 0; i--)
+		{
+			if (list[i] != null)
+				break;
+
+			list.RemoveAt(i);
+		}
+
+		return list;
+	}
 }
