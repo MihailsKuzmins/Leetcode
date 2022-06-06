@@ -17,4 +17,31 @@ public sealed class Solution226Should
 			.Should()
 			.BeEquivalentTo(expected, x => x.WithStrictOrdering());
 	}
+
+	[Fact]
+	public void Case2()
+	{
+		int?[] nums = { 2, 1, 3 };
+		var input = CreateBinaryTree(nums);
+
+		int[] expected = { 2, 3, 1 };
+
+		var output = Solution226.InvertTree(input);
+		var result = GetBinaryTreeList(output);
+
+		result
+			.Should()
+			.BeEquivalentTo(expected, x => x.WithStrictOrdering());
+	}
+
+	[Fact]
+	public void Case3()
+	{
+		var output = Solution226.InvertTree(null);
+		var result = GetBinaryTreeList(output);
+
+		result
+			.Should()
+			.BeEmpty();
+	}
 }
