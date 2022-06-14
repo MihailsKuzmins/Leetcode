@@ -8,18 +8,18 @@
 /// </summary>
 internal sealed class Solution1115
 {
-	private readonly int n;
+	private readonly int _n;
 	private readonly AutoResetEvent _barEnded = new(true),
 		_fooEnded = new(false);
 
 	public Solution1115(int n)
 	{
-		this.n = n;
+		this._n = n;
 	}
 
 	public void Foo(Action printFoo)
 	{
-		for (var i = 0; i < n; i++)
+		for (var i = 0; i < _n; i++)
 		{
 			_barEnded.WaitOne();
 
@@ -33,7 +33,7 @@ internal sealed class Solution1115
 
 	public void Bar(Action printBar)
 	{
-		for (var i = 0; i < n; i++)
+		for (var i = 0; i < _n; i++)
 		{
 			_fooEnded.WaitOne();
 
